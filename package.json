@@ -11,7 +11,7 @@
     "lib": "npm run prepublishOnly",
     "lint": "vue-tsc --noEmit && eslint --ext .ts,.vue src",
     "fix": "eslint --fix --ext .ts,.vue src",
-    "test": ""
+    "test": "npm run lint"
   },
   "peerDependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
