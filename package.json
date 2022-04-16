@@ -1,7 +1,7 @@
 {
   "name": "@altipla/fa6-icon",
   "description": "Vue 3 component to insert Font Awesome 6 icons.",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "main": "./dist/fa6-icon.es.js",
   "type": "module",
   "scripts": {
