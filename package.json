@@ -7,7 +7,8 @@
   "scripts": {
     "start": "vite",
     "build": "NODE_ENV=production vite build",
-    "lib": "NODE_ENV=production vite build --mode lib && vue-tsc --emitDeclarationOnly --declaration --esModuleInterop --outDir dist",
+    "prepublishOnly": "NODE_ENV=production vite build --mode lib && vue-tsc --emitDeclarationOnly --declaration --esModuleInterop --outDir dist",
+    "lib": "npm run prepublishOnly",
     "lint": "vue-tsc --noEmit && eslint --ext .ts,.vue src",
     "fix": "eslint --fix --ext .ts,.vue src",
     "test": ""
