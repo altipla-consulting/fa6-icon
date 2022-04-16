@@ -4,7 +4,7 @@
 </template>
 
 <script lang="ts">
-import { h, mergeProps, defineComponent, VNode } from 'vue'
+import { h, mergeProps, defineComponent, VNode, PropType } from 'vue'
 import { AbstractElement, icon as faIcon, IconName, IconPrefix } from '@fortawesome/fontawesome-svg-core'
 
 
@@ -17,7 +17,10 @@ export default defineComponent({
   name: 'ac-icon',
 
   props: {
-    variant: String,
+    variant: {
+      type: String as PropType<'regular' | 'solid' | 'light' | 'brands' | 'duotone'>,
+      validator: (t: string) => ['regular', 'solid', 'light', 'brands', 'duotone'].includes(t),
+    },
     regular: Boolean,
     solid: Boolean,
     light: Boolean,
@@ -34,16 +37,16 @@ export default defineComponent({
 
   setup(props, { slots, attrs }) {
     return () => {
-      let prefix = props.variant
-      if (props.regular) {
+      let prefix: IconPrefix | undefined
+      if (props.regular || props.variant === 'regular') {
         prefix = 'far'
-      } else if (props.solid) {
+      } else if (props.solid || props.variant === 'solid') {
         prefix = 'fas'
-      } else if (props.light) {
+      } else if (props.light || props.variant === 'light') {
         prefix = 'fal'
-      } else if (props.brands) {
+      } else if (props.brands || props.variant === 'brands') {
         prefix = 'fab'
-      } else if (props.duotone) {
+      } else if (props.duotone || props.variant === 'duotone') {
         prefix = 'fad'
       }
       if (!prefix) {
@@ -70,7 +73,7 @@ export default defineComponent({
       }
       let iconName = def.trim() as IconName
 
-      let icon = faIcon({ prefix: prefix as IconPrefix, iconName }, { classes })
+      let icon = faIcon({ prefix: prefix, iconName }, { classes })
       if (!icon) {
         throw new Error(`could not find icon: ${prefix}-${iconName}`)
       }
