@@ -1,10 +1,20 @@
 {
   "name": "@altipla/fa6-icon",
+  "author": "Altipla Consulting",
   "description": "Vue 3 component to insert Font Awesome 6 icons.",
   "version": "0.1.2",
   "main": "./dist/fa6-icon.es.js",
   "types": "./dist/lib.d.ts",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/altipla-consulting/fa6-icon.git"
+  },
+  "license" : "MIT",
+  "bugs": {
+    "url": "https://github.com/altipla-consulting/fa6-icon/issues"
+  },
+  "homepage": "https://github.com/altipla-consulting/fa6-icon",
   "scripts": {
     "start": "vite",
     "build": "NODE_ENV=production vite build",
