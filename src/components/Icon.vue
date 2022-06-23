@@ -53,7 +53,7 @@ export default defineComponent({
         prefix = 'fat'
       }
       if (!prefix) {
-        throw new Error(`Missing icon prefix configuration. Pass one of {solid,regular,light,brands,duotone} props.`)
+        throw new Error(`Missing icon prefix configuration. Pass one of {solid,regular,light,brands,duotone,thin} props.`)
       }
 
       let classes: string[] = []
