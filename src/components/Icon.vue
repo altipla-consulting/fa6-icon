@@ -18,14 +18,15 @@ export default defineComponent({
 
   props: {
     variant: {
-      type: String as PropType<'regular' | 'solid' | 'light' | 'brands' | 'duotone'>,
-      validator: (t: string) => ['regular', 'solid', 'light', 'brands', 'duotone'].includes(t),
+      type: String as PropType<'regular' | 'solid' | 'light' | 'brands' | 'duotone' | 'thin'>,
+      validator: (t: string) => ['regular', 'solid', 'light', 'brands', 'duotone', 'thin'].includes(t),
     },
     regular: Boolean,
     solid: Boolean,
     light: Boolean,
     brands: Boolean,
     duotone: Boolean,
+    thin: Boolean,
 
     fixedWidth: Boolean,
     spin: Boolean,
@@ -48,6 +49,8 @@ export default defineComponent({
         prefix = 'fab'
       } else if (props.duotone || props.variant === 'duotone') {
         prefix = 'fad'
+      } else if (props.thin || props.variant === 'thin') {
+        prefix = 'fat'
       }
       if (!prefix) {
         throw new Error(`Missing icon prefix configuration. Pass one of {solid,regular,light,brands,duotone} props.`)
