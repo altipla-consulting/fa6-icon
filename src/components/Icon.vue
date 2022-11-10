@@ -9,6 +9,13 @@ import { AbstractElement, icon as faIcon, IconName, IconPrefix } from '@fortawes
 
 
 function convertTag(input: AbstractElement, attrs?: any): VNode {
+  // Vue treats the class and style attributes differently.
+  // We need to exclude them from attrs because Vue will add them back, as to avoid duplication.
+  attrs = {
+    ...attrs,
+    class: undefined,
+    style: undefined,
+  }
   return h(input.tag, mergeProps(input.attributes, attrs), input.children ? input.children.map(child => convertTag(child)) : [])
 }
 
