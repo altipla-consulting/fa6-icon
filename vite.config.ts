@@ -1,7 +1,7 @@
 
 import { resolve } from 'path'
 
-import { defineConfig, UserConfig } from 'vite'
+import { UserConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
 
@@ -16,11 +16,11 @@ export default (({ mode }) => {
   }
 
   if (mode === 'lib') {
-    config.build.lib = {
+    config.build!.lib = {
       entry: resolve(process.cwd(), 'src', 'lib.ts'),
       formats: ['es'],
     }
-    config.build.rollupOptions = {
+    config.build!.rollupOptions = {
       external: ['vue', '@fortawesome/fontawesome-svg-core'],
     }
   }
