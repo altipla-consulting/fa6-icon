@@ -1,6 +1,6 @@
 
 <template>
-  <ac-icon solid>trash</ac-icon>
+  <ac-icon solid class="custom-class">trash</ac-icon>
 </template>
 
 <script lang="ts">
